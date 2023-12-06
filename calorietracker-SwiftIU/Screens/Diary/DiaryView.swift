@@ -44,6 +44,7 @@ struct DiaryView: View {
                  
                 
                 
+                
                 // Food Entry Section
                 List {
                     MealView(

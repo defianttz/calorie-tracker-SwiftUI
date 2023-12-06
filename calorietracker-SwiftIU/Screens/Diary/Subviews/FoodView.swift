@@ -1,5 +1,5 @@
 //
-//  FoodView.swift
+//  FoodRow.swift
 //  calorietracker-SwiftIU
 //
 //  Created by Sammy on 11/27/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FoodView: View {
+struct FoodRow: View {
     let newFood: Food
     
     var body: some View {
@@ -47,6 +47,6 @@ struct FoodView: View {
 
 struct FoodView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodView(newFood: Food(name: "Eggs Benedict", calories: 600, fat: 40, protein: 20, carbs: 40, category: .breakfast))
+        FoodRow(newFood: Food(name: "Eggs Benedict", calories: 600, fat: 40, protein: 20, carbs: 40, category: .breakfast))
     }
 }
