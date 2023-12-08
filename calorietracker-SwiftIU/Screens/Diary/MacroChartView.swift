@@ -18,7 +18,7 @@ struct MacroChartView: View {
             // Macro
             VStack {
                 ZStack{
-                    Text("\(selectedDay.dailyCalories)\nkcal")
+                    Text("\(selectedDay.dailyCalories)\nkcal").font(.system(size: 12))
                     
                     // Sector Chart
                     Chart(macroValues, id: \.name) { item in
@@ -29,16 +29,24 @@ struct MacroChartView: View {
                             angularInset: 1
                             
                         )
+                        //.foregroundStyle(item.color)
                         .foregroundStyle(by: .value("Type", item.name))
                         .cornerRadius(2)
                         
+                        
+                        
                     }
+                    
+                    .chartLegend(.visible)
+                   
+                    
+                    
                 }
                 Text("Consumed").bold()
                 
                 
             }
-            //.frame(width: 200, height: 200)
+            .frame(width: 150, height: 150)
             .aspectRatio(contentMode: .fit)
             
             
@@ -47,7 +55,7 @@ struct MacroChartView: View {
             
             VStack {
                 ZStack{
-                    Text("\(selectedDay.dailyCalories)\nkcal")
+                    Text("\(selectedDay.dailyCalories)\nkcal").font(.system(size: 12))
                     
                     Chart {
                         
@@ -69,11 +77,11 @@ struct MacroChartView: View {
                         .cornerRadius(2)
                         
                     }
+                    //.chartLegend(.hidden)
                 }
                 Text("Burned").bold()
             }
-            .padding()
-            //.frame(width: 200, height: 200)
+            .frame(width: 150, height: 150)
             .aspectRatio(contentMode: .fit)
             
             // Remaining Chart
