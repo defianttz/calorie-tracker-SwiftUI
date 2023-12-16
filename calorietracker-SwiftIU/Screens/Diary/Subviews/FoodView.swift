@@ -31,7 +31,7 @@ struct FoodRow: View {
                 
                 
             }
-        }
+        }.foregroundColor(Color.secondForeGround)
         /*HStack {
             VStack(alignment: .leading) {
                 Text(newFood.name)

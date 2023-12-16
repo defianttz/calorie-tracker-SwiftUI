@@ -19,7 +19,9 @@ struct AddFoodView: View {
 
     var body: some View {
         NavigationView {
+            //Color.appBackGround.ignoresSafeArea(.all)
             VStack {
+                
                 Form {
                     Section(header: Text("Food Details")) {
                         HStack {

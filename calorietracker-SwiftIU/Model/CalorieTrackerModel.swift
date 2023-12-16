@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+
+class CalorieTrackerModel: ObservableObject {
+    @Published var user: User?
+    @Published var targets: Targets?
+    @Published var profile: Profile?
+    
+}

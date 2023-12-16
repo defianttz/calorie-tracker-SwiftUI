@@ -14,9 +14,9 @@ struct EnergyChart: View {
     func macrosData() -> [Macros] {
             var data: [Macros] = []
             for entry in viewModel.diaryEntries {
-                data.append(Macros(date: entry.date, type: "Fat", value: Double(entry.dailyFat)))
-                data.append(Macros(date: entry.date, type: "Protein", value: Double(entry.dailyProtein)))
-                data.append(Macros(date: entry.date, type: "Carbs", value: Double(entry.dailyCarbs)))
+                data.append(Macros(date: entry.date, type: "Fat", value: Double(entry.dailyFat*7)))
+                data.append(Macros(date: entry.date, type: "Protein", value: Double(entry.dailyProtein*4)))
+                data.append(Macros(date: entry.date, type: "Carbs", value: Double(entry.dailyCarbs*4)))
             }
             return data
         }
@@ -38,11 +38,13 @@ struct EnergyChart: View {
                     )
                     .foregroundStyle(by: .value("Type", macro.type))
                     .opacity(0.5)
+                    
                 }
                 .frame(minWidth: 1)
             }
             .padding(10)
-            .background(Color.white)
+            //.background(Color.white)
+        
         }
     
     

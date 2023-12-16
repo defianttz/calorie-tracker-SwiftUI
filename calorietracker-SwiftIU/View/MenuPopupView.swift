@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct MenuPopupView: View {
-    var body: some View {
-        Menu {
-            Button("Add Food") {
-                // Handle adding food
-                print("Add Food selected")
-            }
+    //@ObservedObject var viewModel: UserViewModel
 
-            Button("Add Drink") {
-                // Handle adding drink
-                print("Add Drink selected")
+    var body: some View {
+        
+        NavigationStack{
+            Menu {
+                NavigationLink(destination: Text("View 1")) {
+                    Label("Profile", systemImage: "person")
+                }
+                NavigationLink(destination: Text("Test")) {
+                    Label("Settings", systemImage: "gear")
+                }
+                
+            } label: {
+                Image(systemName: "plus")
+                    .foregroundColor(.accentColor)
             }
-        } label: {
-            Image(systemName: "plus")
-                .foregroundColor(.accentColor)
+            .menuStyle(BorderlessButtonMenuStyle())  // Use BorderlessButtonMenuStyle
         }
-        .menuStyle(BorderlessButtonMenuStyle())  // Use BorderlessButtonMenuStyle
+        
     }
 }
 

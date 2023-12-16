@@ -4,10 +4,10 @@ import SwiftUI
 class DiaryViewModel: ObservableObject {
     @Published var diaryEntries: [DiaryEntry] = []
     @Published var selectedDayIndex: Int = 0
-
+    
     func addFoodToSelectedDay(_ food: Food, category: MealCategory) {
         guard selectedDayIndex < diaryEntries.count else { return }
-
+        
         // Find the meal with the specified category
         if let index = diaryEntries[selectedDayIndex].meals.firstIndex(where: { $0.category == category }) {
             diaryEntries[selectedDayIndex].meals[index].foods.append(food)
@@ -16,7 +16,7 @@ class DiaryViewModel: ObservableObject {
             let newMeal = Meal(category: category , foods: [food], totalCalories: 0, totalFat: 0, totalProtein: 0, totalCarbs: 0)
             diaryEntries[selectedDayIndex].meals.append(newMeal)
         }
-
+        
         // Update totals
         updateTotals()
     }
@@ -30,6 +30,47 @@ class DiaryViewModel: ObservableObject {
         diaryEntries[selectedDayIndex].meals[mealIndex].foods.remove(at: index)
         
         updateTotals()
+    }
+    
+    func addRandomFoods(to dayIndex: Int) {
+        
+        
+        
+        switch dayIndex {
+        case 0, 1, 2, 3, 4, 5, 6: // Sample foods for all days
+            addFoodToSelectedDay(generateRandomFood(category: .breakfast), category: .breakfast)
+            addFoodToSelectedDay(generateRandomFood(category: .lunch), category: .lunch)
+            addFoodToSelectedDay(generateRandomFood(category: .dinner), category: .dinner)
+        // Add more cases for other days if needed
+        default:
+            break
+        }
+    }
+
+    func generateRandomFood(category: MealCategory) -> Food {
+        let foodNames = ["Chicken Salad", "Spaghetti Bolognese", "Vegetarian Stir-Fry", "Quinoa Salad", "Salmon with Asparagus", "Avocado Toast", "Omelette"]
+        let randomIndex = Int.random(in: 0..<foodNames.count)
+        let randomCalories = Int.random(in: 200...500)
+        let randomFat = Int.random(in: 5...20)
+        let randomProtein = Int.random(in: 10...30)
+        let randomCarbs = Int.random(in: 20...50)
+
+        return Food(name: foodNames[randomIndex], calories: randomCalories, fat: randomFat, protein: randomProtein, carbs: randomCarbs, category: category)
+    }
+ 
+    
+    
+    var weightData: [(date: Date, weight: Double)] {
+        var data: [(date: Date, weight: Double)] = []
+        var lastWeight: Double = 0.0 // Default weight
+        for entry in diaryEntries {
+            let weight = entry.weight ?? lastWeight
+            data.append((entry.date, weight))
+            if let entryWeight = entry.weight {
+                lastWeight = entryWeight
+            }
+        }
+        return data
     }
     
     
@@ -66,56 +107,38 @@ class DiaryViewModel: ObservableObject {
         
     }
     
-    /*
-    private func updateTotals() {
-        guard selectedDayIndex < diaryEntries.count else { return }
-
-        // Update totals for the selected day
-        let dayEntry = diaryEntries[selectedDayIndex]
-        dayEntry.dailyCalories = dayEntry.meals.reduce(0) { $0 + $1.totalCalories }
-        dayEntry.dailyFat = dayEntry.meals.reduce(0) { $0 + $1.totalFat }
-        dayEntry.dailyProtein = dayEntry.meals.reduce(0) { $0 + $1.totalProtein }
-        dayEntry.dailyCarbs = dayEntry.meals.reduce(0) { $0 + $1.totalCarbs }
-    }*/
-
+    
     init() {
-        for _ in 1...7 {
-            diaryEntries.append(DiaryEntry(meals: [], date: Date(), dailyCalories: 0, dailyFat: 0, dailyProtein: 0, dailyCarbs: 0))
+        
+        let startDate = Calendar.current.date(from: DateComponents(year: 2023, month: 12, day: 1))!
+        
+        for index in 0..<7 {
+            selectedDayIndex = index
+            let currentDate = Calendar.current.date(byAdding: .day, value: index, to: startDate)!
+            let weight = Double.random(in: 150.0...180.0)
+            diaryEntries.append(DiaryEntry(meals: [], date: currentDate, weight: weight, dailyCalories: 0, dailyFat: 0, dailyProtein: 0, dailyCarbs: 0))
+        
+            // Add random foods to each day
+            addRandomFoods(to: index)
         }
+        selectedDayIndex = 0
         
-
-        // Dummy data for the first day (you can customize as needed)
-        /*diaryEntries[0].meals = [
-            Meal(category: "Breakfast", foods: [
-                Food(name: "Eggs Benedict", calories: 600, fat: 40, protein: 20, carbs: 40, category: "breakfast"),
-                // Add more breakfast foods as needed
-            ]),
-            Meal(category: "Lunch", foods: [
-                Food(name: "Caesar Salad", calories: 350, fat: 25, protein: 10, carbs: 15, category: "Lunch"),
-
-                // Add lunch foods as needed
-            ]),
-            Meal(category: "Dinner", foods: [
-                Food(name: "Grilled Chicken", calories: 250, fat: 10, protein: 30, carbs: 5, category: "breakfast"),
-                // Add dinner foods as needed
-            ]),
-            Meal(category: "Snack", foods: [
-                // Add snack foods as needed
-            ])
-        ]*/
-        
+        /*
         addFoodToSelectedDay(Food(name: "Eggs Benedict", calories: 600, fat: 40, protein: 20, carbs: 40, category: .breakfast),   category: .breakfast)
         addFoodToSelectedDay(Food(name: "Steelcut Oats", calories: 300, fat: 2, protein: 5, carbs: 50, category: .breakfast),   category: .breakfast)
         
         addFoodToSelectedDay(Food(name: "Caesar Salad", calories: 350, fat: 25, protein: 10, carbs: 15, category: .lunch),   category: .lunch)
         
         addFoodToSelectedDay(Food(name: "Grilled Chicken", calories: 250, fat: 10, protein: 30, carbs: 5, category: .dinner),   category: .dinner)
-        
+        */
         
         
     }
+    
+    // Calculate weekly macros history for chart
+    
+    
+    
+    
 }
 
-func addFood(mealType: String) {
-    // Add logic to add a food to the selected day
-}
