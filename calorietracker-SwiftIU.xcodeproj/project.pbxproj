@@ -11,6 +11,11 @@
 		A509A0DA2B1FB95400B2D62B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A509A0D92B1FB95400B2D62B /* UserProfileView.swift */; };
 		A50DB5442B1FDAD4000041CD /* UserProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB5432B1FDAD4000041CD /* UserProfileModel.swift */; };
 		A50DB54F2B1FE2E6000041CD /* AddFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50DB54E2B1FE2E6000041CD /* AddFoodView.swift */; };
+		A594169A2B2E2AC100EA2D60 /* deleteFood.gif in Resources */ = {isa = PBXBuildFile; fileRef = A59416952B2E2AC100EA2D60 /* deleteFood.gif */; };
+		A594169B2B2E2AC100EA2D60 /* Diary.gif in Resources */ = {isa = PBXBuildFile; fileRef = A59416962B2E2AC100EA2D60 /* Diary.gif */; };
+		A594169C2B2E2AC100EA2D60 /* addFood.gif in Resources */ = {isa = PBXBuildFile; fileRef = A59416972B2E2AC100EA2D60 /* addFood.gif */; };
+		A594169D2B2E2AC100EA2D60 /* charts.gif in Resources */ = {isa = PBXBuildFile; fileRef = A59416982B2E2AC100EA2D60 /* charts.gif */; };
+		A594169E2B2E2AC100EA2D60 /* profile.gif in Resources */ = {isa = PBXBuildFile; fileRef = A59416992B2E2AC100EA2D60 /* profile.gif */; };
 		A5CF3E4B2B153B6F0049A90D /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF3E4A2B153B6F0049A90D /* App.swift */; };
 		A5CF3E4D2B153B6F0049A90D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF3E4C2B153B6F0049A90D /* ContentView.swift */; };
 		A5CF3E4F2B153B710049A90D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5CF3E4E2B153B710049A90D /* Assets.xcassets */; };
@@ -49,6 +54,11 @@
 		A509A0D92B1FB95400B2D62B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		A50DB5432B1FDAD4000041CD /* UserProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileModel.swift; sourceTree = "<group>"; };
 		A50DB54E2B1FE2E6000041CD /* AddFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodView.swift; sourceTree = "<group>"; };
+		A59416952B2E2AC100EA2D60 /* deleteFood.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = deleteFood.gif; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Images/deleteFood.gif"; sourceTree = "<group>"; };
+		A59416962B2E2AC100EA2D60 /* Diary.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = Diary.gif; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Images/Diary.gif"; sourceTree = "<group>"; };
+		A59416972B2E2AC100EA2D60 /* addFood.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = addFood.gif; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Images/addFood.gif"; sourceTree = "<group>"; };
+		A59416982B2E2AC100EA2D60 /* charts.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = charts.gif; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Images/charts.gif"; sourceTree = "<group>"; };
+		A59416992B2E2AC100EA2D60 /* profile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = profile.gif; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/Images/profile.gif"; sourceTree = "<group>"; };
 		A5CF3E472B153B6F0049A90D /* calorietracker-SwiftIU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "calorietracker-SwiftIU.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5CF3E4A2B153B6F0049A90D /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A5CF3E4C2B153B6F0049A90D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -176,9 +186,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A59416942B2E290000EA2D60 /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				A59416972B2E2AC100EA2D60 /* addFood.gif */,
+				A59416982B2E2AC100EA2D60 /* charts.gif */,
+				A59416952B2E2AC100EA2D60 /* deleteFood.gif */,
+				A59416962B2E2AC100EA2D60 /* Diary.gif */,
+				A59416992B2E2AC100EA2D60 /* profile.gif */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
 		A5CF3E3E2B153B6F0049A90D = {
 			isa = PBXGroup;
 			children = (
+				A59416942B2E290000EA2D60 /* demo */,
 				A5CF3E492B153B6F0049A90D /* calorietracker-SwiftIU */,
 				A5CF3E482B153B6F0049A90D /* Products */,
 			);
@@ -292,6 +315,11 @@
 			files = (
 				A5CF3E522B153B710049A90D /* Preview Assets.xcassets in Resources */,
 				A5CF3E4F2B153B710049A90D /* Assets.xcassets in Resources */,
+				A594169B2B2E2AC100EA2D60 /* Diary.gif in Resources */,
+				A594169C2B2E2AC100EA2D60 /* addFood.gif in Resources */,
+				A594169E2B2E2AC100EA2D60 /* profile.gif in Resources */,
+				A594169A2B2E2AC100EA2D60 /* deleteFood.gif in Resources */,
+				A594169D2B2E2AC100EA2D60 /* charts.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
